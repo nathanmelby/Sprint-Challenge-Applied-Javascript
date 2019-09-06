@@ -24,10 +24,10 @@
 const cardsEntry = document.querySelector('.cards-container')
 
 //API function
-axios.get('https://lambda-times-backend.herokuapp.com/articles')
- .then(response =>{
-     console.log(response.data.articles.bootstrap);
- })
+// axios.get('https://lambda-times-backend.herokuapp.com/articles')
+//  .then(response =>{
+//      console.log(response.data.articles.bootstrap);
+//  })
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
