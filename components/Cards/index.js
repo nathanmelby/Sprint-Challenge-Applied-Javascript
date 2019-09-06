@@ -24,6 +24,10 @@
 const cardsEntry = document.querySelector('.cards-container')
 
 //API function
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+ .then(response =>{
+     console.log(response.data.articles.bootstrap);
+ })
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
@@ -57,7 +61,8 @@ function createCard(data) {
     const newCard = document.createElement('div');
     const newHeadline = document.createElement('div');
     const newAuthor = document.createElement('div');
-    const newImage = document.createElement('div');
+    const newImageDiv = document.createElement('div');
+    const newImage = document.createElement('img');
     const newAuthorName = document.createElement('span');
 
 
@@ -66,20 +71,21 @@ function createCard(data) {
     newCard.classList.add('card');
     newHeadline.classList.add('headline');
     newAuthor.classList.add('author');
-    newImage.classList.add('img-container');
-
+    newImageDiv.classList.add('img-container');
+ 
     //set content
 
     newHeadline.textContent = `${data.headline}`
     newImage.src = `${data.authorPhoto}`
     newAuthorName.textContent = `${data.authorName}`
 
-    //setup strcuture of elements
+   //setup strcuture of elements
 
     newCard.appendChild(newHeadline);
     newCard.appendChild(newAuthor);
-    newAuthor.appendChild(newImage);
+    newAuthor.appendChild(newImageDiv);
     newAuthor.appendChild(newAuthorName);
+    newImageDiv.appendChild(newImage);
 
     return newCard;
 };
