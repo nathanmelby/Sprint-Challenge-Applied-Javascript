@@ -26,6 +26,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
     });
 });
 
+//tab creator function
 
 function createTabs(data) {
 

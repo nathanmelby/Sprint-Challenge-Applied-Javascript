@@ -9,9 +9,13 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
+//entrypoint
+
 const insertHeader = document.querySelector('.header-container');
 
 insertHeader.prepend(Header());
+
+//header creator
 
 function Header() {
 //define new elements

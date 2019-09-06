@@ -18,31 +18,47 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-//     axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
-// .then(response => {
-//     console.log(response.data.articles);
-   
-// });
+//entrypoint
 
+const cardsEntry = document.querySelector('.cards-container')
 
+//API function
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
 .then(response => {
-    console.log(response.data.articles.bootstrap);
+
     response.data.articles.bootstrap.forEach(item => {
-        const newBootstrap= createTabs(item)
-        tabsEntry.appendChild(newTopicTitle);
-    });
+        const newBootstrap= createCard(item)
+        cardsEntry.appendChild(newBootstrap);
+
+    response.data.articles.technology.forEach(item => {
+            const newTechnology= createCard(item)
+            cardsEntry.appendChild(newTechnology);
+        });
+
+    response.data.articles.jquery.forEach(item => {
+            const newJQuery= createCard(item)
+            cardsEntry.appendChild(newJQuery);
+        });
+
+    response.data.articles.node.forEach(item => {
+            const newNode= createCard(item)
+            cardsEntry.appendChild(newNode);
+        });
+    }); 
+
 });
+
+//card creator 
 
 function createCard(data) {
     const newCard = document.createElement('div');
-    const newHeadline = documenet.createElement('div');
-    const newAuthor = documenet.createElement('div');
-    const newImage = documenet.createElement('div');
-    const newAuthorName = documenet.createElement('span');
+    const newHeadline = document.createElement('div');
+    const newAuthor = document.createElement('div');
+    const newImage = document.createElement('div');
+    const newAuthorName = document.createElement('span');
 
 
     //set class names
